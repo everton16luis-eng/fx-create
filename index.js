@@ -104,6 +104,38 @@ fs.cpSync(
   }
 );
 
+// ===============================
+// ATUALIZA O NOME NO PACKAGE.JSON
+// ===============================
+
+const caminhoPackage = path.join(
+  destinoProjeto,
+  "package.json"
+);
+
+if (fs.existsSync(caminhoPackage)) {
+
+  const packageJson = JSON.parse(
+    fs.readFileSync(caminhoPackage, "utf8")
+  );
+
+  const nomePackage = nomeProjeto
+    .toLowerCase()
+    .trim()
+    .replace(/\s+/g, "-")
+    .replace(/[^a-z0-9-_]/g, "");
+
+  packageJson.name = nomePackage;
+
+  fs.writeFileSync(
+    caminhoPackage,
+    JSON.stringify(packageJson, null, 2)
+  );
+
+  console.log(`✓ package.json atualizado`);
+  console.log(`✓ Nome do pacote: ${nomePackage}`);
+}
+
 console.log(`
 ===============================
     PROJETO CRIADO!
