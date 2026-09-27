@@ -1,0 +1,17 @@
+{
+  "name": "fx-create",
+  "version": "1.0.0",
+  "description": "Meu CLI para criar projetos",
+  "main": "index.js",
+  "bin": {
+    "fx-create": "./index.js"
+  },
+  "type": "module",
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "inquirer": "^14.2.2"
+  }
+}
